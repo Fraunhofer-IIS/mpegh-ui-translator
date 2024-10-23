@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:nga:post:languagecode.schema.json",
+  "title": "Language Code",
+  "description":
+      "A language code based on a 3 letter code defined in ISO 639-2 (ISO 639-2/B or ISO 639-2) - cannot be altered",
+  "type": "string",
+  "minLength": 3,
+  "maxLength": 3
+}

@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:nga:get:ngainteractivity.schema.json",
+  "title": "NGA interactivity",
+  "description": "A NGA interactivity object state",
+  "type": "object",
+  "properties": {
+    "uuid": {
+      "description": "The UUID of the audio scene",
+      "type": "string",
+      "format": "uuid"
+    },
+    "displayLanguageHint": {
+      "description":
+          "A hint which display label language should be used (based on the current content and the TV settings) if no further information is available",
+      "$ref": "urn:nga:get:languagecode.schema.json"
+    },
+    "audioPresets": {
+      "description": "An array of presets contained in the audio scene",
+      "type": "array",
+      "items": {
+        "$ref": "urn:nga:get:preset.schema.json"
+      }
+    }
+  },
+  "required": [
+    "uuid",
+    "displayLanguageHint",
+    "audioPresets"
+  ]
+}

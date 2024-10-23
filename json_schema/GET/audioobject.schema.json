@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:nga:get:audioobject.schema.json",
+  "title": "Audio Object",
+  "description": "An audio object state",
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "The unique ID of the audio object",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 126
+    },
+    "contentKind": {
+      "description": "The content kind of the audio object",
+      "$ref": "urn:nga:get:contentkind.schema.json"
+    },
+    "contentLanguage": {
+      "description": "The content language of the audio object",
+      "$ref": "urn:nga:get:languagecode.schema.json"
+    },
+    "labels": {
+      "description": "All available labels describing the audio object",
+      "type": "array",
+      "items": {
+        "$ref": "urn:nga:get:label.schema.json"
+      },
+      "uniqueItems": true
+    },
+    "prominence": {
+      "description": "The prominence interactivity of the audio object",
+      "$ref": "urn:nga:get:prominenceproperty.schema.json"
+    },
+    "azimuth": {
+      "description": "The azimuth interactivity of the audio object",
+      "$ref": "urn:nga:get:azimuthproperty.schema.json"
+    },
+    "elevation": {
+      "description": "The elevation interactivity of the audio object",
+      "$ref": "urn:nga:get:elevationproperty.schema.json"
+    },
+    "muting": {
+      "description": "The muting interactivity of the audio object",
+      "$ref": "urn:nga:get:mutingproperty.schema.json"
+    }
+  },
+  "required": [
+    "id",
+    "labels"
+  ]
+}

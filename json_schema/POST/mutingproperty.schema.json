@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:nga:post:mutingproperty.schema.json",
+  "title": "Muting Property",
+  "description": "An NGA muting property object update",
+  "type": "object",
+  "properties": {
+    "value": {
+      "description": "True if muting is enabled, False otherwise",
+      "type": "boolean"
+    },
+    "default": {
+      "description": "True if muting is enabled by default, False otherwise - cannot be altered",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "value"
+  ]
+}

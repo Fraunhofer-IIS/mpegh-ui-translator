@@ -1,0 +1,3 @@
+- [Bernd Herrmann](https://github.com/bherrmann-iis), Fraunhofer IIS
+- [Daniel Stadelmann](https://github.com/dstadelmann-iis), Fraunhofer IIS
+- [Moritz Fuchs](https://github.com/mfuchs-iis), Fraunhofer IIS

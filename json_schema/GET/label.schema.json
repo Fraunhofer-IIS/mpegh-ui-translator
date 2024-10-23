@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:nga:get:label.schema.json",
+  "title": "Audio Object Label",
+  "description": "An audio object label",
+  "type": "object",
+  "properties": {
+    "lang": {
+      "description": "The language of the localized label",
+      "$ref": "urn:nga:get:languagecode.schema.json"
+    },
+    "value": {
+      "description": "The value of the localized label",
+      "type": "string"
+    }
+  },
+  "required": [
+    "lang",
+    "value"
+  ]
+}

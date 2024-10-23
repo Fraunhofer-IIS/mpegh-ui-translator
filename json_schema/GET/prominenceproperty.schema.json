@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:nga:get:prominenceproperty.schema.json",
+  "title": "Prominence Property",
+  "description": "An NGA prominence property object state",
+  "type": "object",
+  "properties": {
+    "default": {
+      "description": "The default prominence value",
+      "type": "number"
+    },
+    "level": {
+      "description": "The currently active prominence value",
+      "type": "number"
+    },
+    "min": {
+      "description": "The minimum prominence value",
+      "type": "number"
+    },
+    "max": {
+      "description": "The maximum prominence value",
+      "type": "number"
+    }
+  },
+  "required": [
+    "default",
+    "level",
+    "min",
+    "max"
+  ]
+}

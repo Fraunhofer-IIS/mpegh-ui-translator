@@ -1,0 +1,9 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:nga:get:presetkind.schema.json",
+  "title": "Preset kind",
+  "description": "The preset kind associated to the parent preset",
+  "type": "integer",
+  "minimum": 0,
+  "maximum": 31
+}

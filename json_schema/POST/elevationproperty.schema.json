@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:nga:post:elevationproperty.schema.json",
+  "title": "Elevation Property",
+  "description": "An NGA elevation property object update",
+  "type": "object",
+  "properties": {
+    "default": {
+      "description": "The default elevation value - cannot be altered",
+      "type": "number"
+    },
+    "offset": {
+      "description": "The currently active elevation value",
+      "type": "number"
+    },
+    "min": {
+      "description": "The minimum elevation value - cannot be altered",
+      "type": "number"
+    },
+    "max": {
+      "description": "The maximum elevation value - cannot be altered",
+      "type": "number"
+    }
+  },
+  "required": [
+    "offset"
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:nga:post:switchgroup.schema.json",
+  "title": "NGA Switch Group",
+  "description": "An NGA switch group update",
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "The id of the switch group - cannot be altered",
+      "type": "integer",
+      "minmum": 0,
+      "maximum": 31
+    },
+    "activeObject": {
+      "description": "The id of the currently active audio object within the switch group",
+      "type": "integer",
+      "minmum": 0,
+      "maximum": 126
+    },
+    "defaultObject": {
+      "description":
+          "The id of the default audio object within the switch group - cannot be altered",
+      "type": "integer",
+      "minmum": 0,
+      "maximum": 126
+    },
+    "labels": {
+      "description": "All available label describing the switch group - cannot be altered",
+      "type": "array",
+      "items": {
+        "$ref": "urn:nga:post:label.schema.json"
+      },
+      "uniqueItems": true
+    },
+    "muting": {
+      "description": "The muting interactivity of the switch group",
+      "$ref": "urn:nga:post:mutingproperty.schema.json"
+    },
+    "objects": {
+      "description": "An array of audio objects contained in the switch group",
+      "type": "array",
+      "items": {
+        "$ref": "urn:nga:post:audioobject.schema.json"
+      }
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

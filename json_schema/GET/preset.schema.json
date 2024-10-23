@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:nga:get:preset.schema.json",
+  "title": "Preset",
+  "description": "An NGA preset state",
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "The unique ID of the preset",
+      "type": "integer",
+      "minmum": 0,
+      "maximum": 31
+    },
+    "active": {
+      "description": "True if the preset is currently active, False otherwise",
+      "type": "boolean"
+    },
+    "default": {
+      "description": "True if the preset is the default preset, False otherwise",
+      "type": "boolean"
+    },
+    "contentKinds": {
+      "description": "The content kinds included in the preset",
+      "type": "array",
+      "items": {
+        "$ref": "urn:nga:get:contentkind.schema.json"
+      },
+      "uniqueItems": true
+    },
+    "contentLanguages": {
+      "description": "The content languages of the preset",
+      "type": "array",
+      "items": {
+        "$ref": "urn:nga:get:languagecode.schema.json"
+      },
+      "uniqueItems": true
+    },
+    "labels": {
+      "description": "All available labels describing the preset",
+      "type": "array",
+      "items": {
+        "$ref": "urn:nga:get:label.schema.json"
+      },
+      "uniqueItems": true
+    },
+    "objects": {
+      "description": "An array of audio objects contained in the preset",
+      "type": "array",
+      "items": {
+        "$ref": "urn:nga:get:audioobject.schema.json"
+      },
+      "uniqueItems": true
+    },
+    "switchGroups": {
+      "description": "An array of switch groups contained in the preset",
+      "type": "array",
+      "items": {
+        "$ref": "urn:nga:get:switchgroup.schema.json"
+      },
+      "uniqueItems": true
+    },
+    "presetKind": {
+      "description": "The preset kind of this preset",
+      "$ref": "urn:nga:get:presetkind.schema.json"
+    }
+  },
+  "required": [
+    "id",
+    "active",
+    "default",
+    "labels",
+    "objects",
+    "switchGroups"
+  ]
+}

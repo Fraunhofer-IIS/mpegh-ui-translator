@@ -1,0 +1,9 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:nga:post:contentkind.schema.json",
+  "title": "Content kind",
+  "description": "The content kind associated with the parent object - cannot be altered",
+  "type": "integer",
+  "minimum": 0,
+  "maximum": 15
+}

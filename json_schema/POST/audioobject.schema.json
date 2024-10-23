@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:nga:post:audioobject.schema.json",
+  "title": "Audio Object",
+  "description": "An audio object update",
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "The unique ID of the audio object - cannot be altered",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 126
+    },
+    "contentKind": {
+      "description": "The content kind of the audio object  - cannot be altered",
+      "$ref": "urn:nga:post:contentkind.schema.json"
+    },
+    "contentLanguage": {
+      "description": "The content language of the audio object - cannot be altered",
+      "$ref": "urn:nga:post:languagecode.schema.json"
+    },
+    "labels": {
+      "description": "All available labels describing the audio object - cannot be altered",
+      "type": "array",
+      "items": {
+        "$ref": "urn:nga:post:label.schema.json"
+      },
+      "uniqueItems": true
+    },
+    "prominence": {
+      "description": "The prominence interactivity of the audio object",
+      "$ref": "urn:nga:post:prominenceproperty.schema.json"
+    },
+    "azimuth": {
+      "description": "The azimuth interactivity of the audio object",
+      "$ref": "urn:nga:post:azimuthproperty.schema.json"
+    },
+    "elevation": {
+      "description": "The elevation interactivity of the audio object",
+      "$ref": "urn:nga:post:elevationproperty.schema.json"
+    },
+    "muting": {
+      "description": "The muting interactivity of the audio object",
+      "$ref": "urn:nga:post:mutingproperty.schema.json"
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

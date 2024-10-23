@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:nga:post:azimuthproperty.schema.json",
+  "title": "Azimuth Property",
+  "description": "An NGA azimuth property object update",
+  "type": "object",
+  "properties": {
+    "default": {
+      "description": "The default azimuth value - cannot be altered",
+      "type": "number"
+    },
+    "offset": {
+      "description": "The currently active azimuth value",
+      "type": "number"
+    },
+    "min": {
+      "description": "The minimum azimuth value - cannot be altered",
+      "type": "number"
+    },
+    "max": {
+      "description": "The maximum azimuth value - cannot be altered",
+      "type": "number"
+    }
+  },
+  "required": [
+    "offset"
+  ]
+}
