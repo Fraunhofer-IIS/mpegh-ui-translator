@@ -97,6 +97,17 @@ static Json::Value makeEmptyArray() {
   return out;
 }
 
+template <typename T>
+static bool addIfMissing(Json::Value& array, const T& newElement) {
+  for (const auto& element : array) {
+    if (element == newElement) {
+      return false;
+    }
+  }
+  array.append(newElement);
+  return true;
+}
+
 static Json::Value composeLabel(const SLocalizedString& label) {
   Json::Value out{};
 
@@ -253,7 +264,6 @@ static Json::Value composePreset(const SPreset& preset,
 
   out["id"] = preset.id;
   auto& labels = out["labels"] = makeEmptyArray();
-  out["contentLanguages"] = makeEmptyArray();
   if (preset.customKind) {
     for (const auto& label : preset.customKind->description) {
       labels.append(composeLabel(label));
@@ -261,25 +271,60 @@ static Json::Value composePreset(const SPreset& preset,
   }
 
   if (preset.kind) {
-    out["contentKind"] = preset.kind->code;
+    out["presetKind"] = preset.kind->code;
   }
   out["default"] = preset.isDefault;
   out["active"] = preset.isActive;
 
   auto& objects = out["objects"] = makeEmptyArray();
+  auto& contentKinds = out["contentKinds"] = makeEmptyArray();
+  auto& contentLanguages = out["contentLanguages"] = makeEmptyArray();
+
   for (const auto& audioElement : preset.audioElements) {
     objects.append(composeAudioElement(audioElement));
+    if (audioElement.kind) {
+      addIfMissing(contentKinds, audioElement.kind->code);
+    }
+    if (audioElement.customKind && !audioElement.customKind->langCode.empty()) {
+      addIfMissing(contentLanguages, audioElement.customKind->langCode);
+    }
   }
   for (const auto& audioElement : additionalAudioElements) {
     objects.append(composeAudioElement(audioElement));
+    if (audioElement.kind) {
+      addIfMissing(contentKinds, audioElement.kind->code);
+    }
+    if (audioElement.customKind && !audioElement.customKind->langCode.empty()) {
+      addIfMissing(contentLanguages, audioElement.customKind->langCode);
+    }
   }
 
   auto& switchGroups = out["switchGroups"] = makeEmptyArray();
   for (const auto& switchGroup : preset.switchGroups) {
     switchGroups.append(composeSwitchGroup(switchGroup));
+    for (const auto& audioElement : switchGroup.audioElements) {
+      if (audioElement.isDefault) {
+        if (audioElement.kind) {
+          addIfMissing(contentKinds, audioElement.kind->code);
+        }
+      }
+      if (audioElement.customKind && !audioElement.customKind->langCode.empty()) {
+        addIfMissing(contentLanguages, audioElement.customKind->langCode);
+      }
+    }
   }
   for (const auto& switchGroup : additionalSwitchGroups) {
     switchGroups.append(composeSwitchGroup(switchGroup));
+    for (const auto& audioElement : switchGroup.audioElements) {
+      if (audioElement.isDefault) {
+        if (audioElement.kind) {
+          addIfMissing(contentKinds, audioElement.kind->code);
+        }
+      }
+      if (audioElement.customKind && !audioElement.customKind->langCode.empty()) {
+        addIfMissing(contentLanguages, audioElement.customKind->langCode);
+      }
+    }
   }
 
   return out;
