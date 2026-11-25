@@ -3,19 +3,19 @@ include(FetchContent)
 
 include_guard()
 
-project(MpeghUiTranslator VERSION "1.0.0")
+project(MpeghUiTranslator VERSION "1.1.0")
 
 set(mpeghuitranslator_BUILD_DOC      OFF CACHE BOOL "Build documentation PDF")
 set(mpeghuitranslator_BUILD_BINARIES OFF CACHE BOOL "Build demo executables")
 
 FetchContent_Declare(
   jsoncpp
-  URL https://github.com/open-source-parsers/jsoncpp/archive/refs/tags/1.9.5.zip
+  URL https://github.com/open-source-parsers/jsoncpp/archive/refs/tags/1.9.8.zip
 )
 
 FetchContent_Declare(
   libxml2
-  URL https://github.com/GNOME/libxml2/archive/refs/tags/v2.9.12.zip
+  URL https://github.com/GNOME/libxml2/archive/refs/tags/v2.15.4.zip
 )
 
 add_subdirectory(src)
